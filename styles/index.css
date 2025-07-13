@@ -1,0 +1,158 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  line-height: 160%;
+}
+body{
+  display: grid;
+  justify-self: center;
+
+  background: url("../assets/bg.jpg") no-repeat center top, #121214;
+
+  font-family: "Inter";
+  color: white;
+}
+header{
+  padding-top: 2rem;
+  text-align: center;
+
+  & img{
+    width: 15rem;
+  }
+}
+
+main{
+  margin-top: 3rem;
+  margin-inline: auto;
+  max-width: 36rem;
+  width:90%;
+
+  & section{
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50%, #E2D45C 100%);
+    padding-top: 4px;
+    border-radius: 0.625rem;
+
+    opacity: 0;
+    transform: translateY(2rem);
+
+    animation: appear 700ms ease forwards;
+
+    & > div{
+      background-color: #2A2634;
+      padding: 1.5rem 2rem 2rem;
+      border-radius: 0.5rem;
+
+      & h2{
+        letter-spacing: -0.47px;
+      }
+      & p{
+        letter-spacing: -0.18px;
+        color: #A1A1AA
+      }
+
+      & form{
+        display: flex;
+        gap: 0.85rem;
+        flex-wrap: wrap;
+        margin-block: 1.25rem;
+
+        & input, select{
+          all: unset;
+          border: 2px solid #9147ff;
+          border-radius: 0.5rem;
+          padding: 0.675rem;
+          font-size: 0.875rem;
+          background-color: #00000066;
+        }
+        
+        & input {
+          flex: 1;
+        }
+
+        & button{
+          width: 100%;
+          border: 0;
+          background-image: linear-gradient(245deg, #9572FC 0%, #43E7AD 50%, #E2D45C 100%);
+          border-radius: 0.5rem;
+          padding: 0.675rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.12px;
+          transition: all 0.3s ease;
+          &:hover{
+            cursor: pointer;
+            transform: translateY(-2px);
+          }
+        }
+      }
+      & #aiResponse{
+        background: rgb(0, 0, 0, 0.4);
+        border-radius: 0.5rem;
+        padding: 1.25rem;
+        border-left: 4px solid #43E7AD;
+        & ul{
+          padding-left: 1.5rem;
+        }
+
+        & p{
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+button.disabled{
+  transition: none;
+  transform: translateY(0);
+  
+  &:hover{
+    cursor: not-allowed;
+    transform: translateY(0);
+  }
+}
+
+.loading{
+  animation: pulse 800ms infinite;
+}
+
+.hidden{
+  display: none;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes appear {
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (width <= 440px){
+  main{
+    & section{
+      & > div{
+        & form{
+          & input, select{
+            all: unset;
+            border: 2px solid #9147ff;
+            border-radius: 0.5rem;
+            padding: 0.675rem;
+            font-size: 0.875rem;
+            background-color: #00000066;
+            flex: 1;
+          }
+          & button{
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
